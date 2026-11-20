@@ -1,0 +1,15 @@
+<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <title>Alight Motion</title>
+  <defs>
+    <linearGradient id="am" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#66F9A8"/>
+      <stop offset="1" stop-color="#2AB8DD"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#am)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M43.5,28.3294a19.5,19.5,0,0,0-39,0"/>
+    <path d="M18.4694,32.593a6.9229,6.9229,0,0,0,9.79-9.7905"/>
+    <path d="M23.25,39.1706a11.2273,11.2273,0,1,0,0-22.4545"/>
+    <path d="M34.6024,38.2223a14.6374,14.6374,0,1,0-20.7-20.7"/>
+  </g>
+</svg>

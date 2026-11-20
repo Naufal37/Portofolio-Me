@@ -1,0 +1,25 @@
+{
+  "name": "portofolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naufal37/Portofolio-Me.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Naufal37/Portofolio-Me/issues"
+  },
+  "homepage": "https://github.com/Naufal37/Portofolio-Me#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}

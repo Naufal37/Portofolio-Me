@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Logo Figma">
+  <path fill="#f24e1e" d="M22 4h10v14H22a7 7 0 0 1 0-14z"/>
+  <path fill="#ff7262" d="M32 4h10a7 7 0 0 1 0 14H32z"/>
+  <path fill="#a259ff" d="M22 18h10v14H22a7 7 0 0 1 0-14z"/>
+  <circle cx="42" cy="25" r="7" fill="#1abcfe"/>
+  <path fill="#0acf83" d="M22 32h10v14H22a7 7 0 0 1 0-14z"/>
+</svg>
