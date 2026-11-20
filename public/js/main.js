@@ -165,3 +165,23 @@ function updateNavbar() {
 window.addEventListener('scroll', updateNavbar, { passive: true });
 window.addEventListener('resize', updateNavbar);
 updateNavbar();
+
+// =========================================
+// 5. Tutup menu navbar di HP setelah link diklik
+// =========================================
+var mobileMenu = document.getElementById('menu');
+
+if (mobileMenu) {
+    document.querySelectorAll('.navbar .nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+            if (window.innerWidth >= 992) return;
+            if (!mobileMenu.classList.contains('show')) return;
+
+            if (window.bootstrap && bootstrap.Collapse) {
+                bootstrap.Collapse.getOrCreateInstance(mobileMenu).hide();
+            } else {
+                mobileMenu.classList.remove('show');
+            }
+        });
+    });
+}

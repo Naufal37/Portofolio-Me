@@ -47,6 +47,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    overflow-x: hidden;
 }
 
 body {
@@ -202,6 +203,8 @@ section {
     background: rgba(255, 255, 255, .08);
     color: #fff;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     transition: background .25s, border-color .25s,
                 transform .35s cubic-bezier(.22, 1, .36, 1);
 }
@@ -672,6 +675,7 @@ section {
 }
 
 .skill-card {
+    position: relative;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -1280,11 +1284,28 @@ section {
 /* ---------- Responsif ---------- */
 @media (max-width: 991.98px) {
     .section {
-        padding: 80px 0;
+        padding: 72px 0;
+    }
+
+    /* Saat menu dibuka, tombol tema & hamburger tetap di baris atas */
+    .navbar .navbar-collapse {
+        order: 4;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px 0 16px;
+        border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .navbar-nav {
+        gap: 2px;
+    }
+
+    .navbar .nav-link {
+        padding: 10px 14px !important;
     }
 
     .hero-section {
-        padding: 140px 0 80px;
+        padding: 130px 0 70px;
         text-align: center;
     }
 
@@ -1305,22 +1326,129 @@ section {
     }
 
     .profile-wrap {
-        margin-top: 20px;
+        margin-top: 28px;
+    }
+
+    .section-heading {
+        margin-bottom: 38px;
     }
 }
 
 @media (max-width: 576px) {
     .section {
-        padding: 65px 0;
+        padding: 58px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 1.75rem;
+        letter-spacing: -.5px;
+    }
+
+    .hero-section {
+        padding: 115px 0 60px;
     }
 
     .hero-title {
+        font-size: clamp(2.1rem, 9vw, 3rem);
         letter-spacing: -1px;
     }
 
+    .hero-desc {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    /* Tombol hero ditumpuk rapi, tidak setengah kepotong */
+    .hero-section .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-meta {
+        gap: 10px 18px;
+        font-size: .8rem;
+    }
+
+    .profile-wrap {
+        padding: 12px;
+    }
 
     .about-card,
     .about-story {
-        padding: 26px 22px;
+        padding: 24px 20px;
+    }
+
+    .about-story p {
+        font-size: 1.05rem;
+    }
+
+    .skill-card {
+        padding: 22px 8px 20px;
+    }
+
+    .skill-icon {
+        width: 54px;
+        height: 54px;
+        margin-bottom: 12px;
+    }
+
+    .skill-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Tooltip skill jangan sampai keluar dari layar */
+    .skill-level {
+        width: 150px;
+        padding: 10px 12px;
+    }
+
+    .skill-level::after {
+        display: none;
+    }
+
+    .col-6:nth-child(odd) .skill-level {
+        left: 0;
+        transform: translate(0, 8px);
+    }
+
+    .col-6:nth-child(odd) .skill-card.is-showing-level .skill-level {
+        transform: translate(0, 0);
+    }
+
+    .col-6:nth-child(even) .skill-level {
+        left: auto;
+        right: 0;
+        transform: translate(0, 8px);
+    }
+
+    .col-6:nth-child(even) .skill-card.is-showing-level .skill-level {
+        transform: translate(0, 0);
+    }
+
+    /* Screenshot portrait terlalu tinggi di HP: tampil utuh di frame lebih pendek */
+    .project-img--portrait,
+    .project-img--full {
+        aspect-ratio: 4 / 5;
+        object-fit: contain;
+        background: var(--soft-bg);
+        padding: 10px;
+    }
+
+    .project-body {
+        padding: 24px 20px 26px;
+    }
+
+    .project-body p {
+        font-size: .86rem;
+        word-spacing: normal;
+    }
+
+    .project-number {
+        font-size: 1.6rem;
+    }
+
+    .contact-card {
+        padding: 28px 16px 26px;
     }
 }
