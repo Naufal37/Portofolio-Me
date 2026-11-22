@@ -23,7 +23,8 @@ http://localhost:3001
 - **8 section navigasi:** Home, About, Skills, Projects, Aktivitas, Pendidikan, Sertifikat, Contact
 - **Theme toggle** 🌙☀️ di navbar — pilihan tersimpan di `localStorage` dan mengikuti preferensi sistem saat pertama kali dibuka
 - **Reveal animation** saat elemen masuk ke layar (dengan stagger & delay)
-- **Skill card interaktif:** efek "pop" saat diklik + tooltip level keahlian setelah hover
+- **Skill card interaktif:** efek "pop" saat diklik + tooltip level keahlian setelah hover (termasuk Python 25%)
+- **Demo terminal Python di Projects:** tampilan source code `Lagu.py` bisa di-"jalankan", lalu `lagu.mp3` diputar dari detik ke-143 dan lirik *Shape of My Heart* diketik per karakter di CMD dengan jeda/timing yang sama persis seperti script aslinya (ada tombol opsional "Lewati jeda")
 - **Scroll progress bar** di bagian atas halaman
 - **Navbar menyusut** saat scroll dan menu aktif menyesuaikan section yang sedang dilihat
 - **Full responsive** dengan Breakpoint Bootstrap
@@ -86,6 +87,8 @@ Hentikan server dengan menekan `Ctrl + C` di terminal.
 ```
 Portofolio/
 ├── public/
+│   ├── audio/
+│   │   └── lagu.mp3        # Audio demo project Python (Shape of My Heart)
 │   ├── images/
 │   │   ├── logos/          # Logo skill & media sosial (SVG)
 │   │   ├── walpaper 2.jpg  # Wallpaper section Home

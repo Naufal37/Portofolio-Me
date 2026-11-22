@@ -83,7 +83,7 @@
 
                 <p class="hero-desc reveal" data-delay="200">
                     Saya adalah siswa SMKN 5 Malang Dari Jurusan Rekayasa Perangkat Lunak yang
-                    sedang belajar HTML, CSS, Bootstrap, GitHub dan PHP.
+                    sedang belajar HTML, CSS, Bootstrap, GitHub, PHP dan Python.
                 </p>
 
                 <div class="d-flex flex-wrap gap-3 reveal" data-delay="300">
@@ -219,6 +219,13 @@
                             <div class="skill-icon icon-dart"><img src="images/logos/dart.svg" alt="Logo Dart" class="skill-logo"></div>
                             <h6>Dart</h6>
                             <small>Bahasa Flutter</small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Python" data-level="25">
+                            <div class="skill-icon icon-python"><img src="images/logos/python.svg" alt="Logo Python" class="skill-logo"></div>
+                            <h6>Python</h6>
+                            <small>Script &amp; otomasi</small>
                         </div>
                     </div>
                 </div>
@@ -429,6 +436,84 @@
                         <h5>Android TV Stick Optimization &amp; Debloating</h5>
                         <p>Eksperimen mengoptimalkan perangkat Android TV Stick menggunakan Android Debug Bridge (ADB). Melakukan pengelolaan aplikasi bawaan melalui ADB Shell, menonaktifkan aplikasi yang tidak diperlukan, serta mengeksplorasi penggunaan launcher alternatif untuk menciptakan pengalaman Android TV yang lebih sederhana.</p>
                         <div class="project-tags"><span>ADB</span><span>ADB Shell</span><span>Android TV</span><span>USB Debugging</span><span>Wireless Debugging</span></div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Project Python: source code -> CMD dengan lirik yang diketik -->
+            <div class="col-md-6 col-lg-4">
+                <article class="project-card reveal">
+                    <div class="code-demo" data-lyric-demo>
+                        <audio data-audio preload="none"></audio>
+
+                        <div class="code-demo-bar">
+                            <span class="code-demo-title" data-title>Lagu.py - Visual Studio Code</span>
+                            <span class="window-buttons" aria-hidden="true"><i></i><i></i><i></i></span>
+                        </div>
+
+                        <div class="code-demo-screen">
+                            <div class="code-view" data-code-view>
+<pre><code><span class="tok-com"># Shape of My Heart - Backstreet Boys (climax)</span>
+<span class="tok-com"># timing asli: lirik pertama muncul 14.9 detik setelah play(start=143)</span>
+<span class="tok-kw">import</span> sys
+<span class="tok-kw">import</span> time
+<span class="tok-kw">import</span> pygame
+
+lyrics = [
+    (<span class="tok-str">"I'm lookin' back on things I've done"</span>, <span class="tok-num">14.9</span>, <span class="tok-num">3.5</span>),
+    (<span class="tok-str">"I never wanna play the same old part"</span>, <span class="tok-num">20.3</span>, <span class="tok-num">3.8</span>),
+    (<span class="tok-str">"I'll keep you in the dark"</span>, <span class="tok-num">25.7</span>, <span class="tok-num">2.8</span>),
+    (<span class="tok-str">"Now let me show you the shape of my heart"</span>, <span class="tok-num">29.9</span>, <span class="tok-num">3.5</span>),
+    <span class="tok-com"># ... bagian reff &amp; outro</span>
+]
+
+<span class="tok-kw">def</span> <span class="tok-fn">type_line_synced</span>(text, duration):
+    char_delay = duration / <span class="tok-fn">max</span>(<span class="tok-fn">len</span>(text), <span class="tok-num">1</span>)
+    <span class="tok-kw">for</span> ch <span class="tok-kw">in</span> text:
+        sys.stdout.<span class="tok-fn">write</span>(ch)
+        sys.stdout.<span class="tok-fn">flush</span>()
+        time.<span class="tok-fn">sleep</span>(char_delay)
+    <span class="tok-fn">print</span>()
+
+pygame.mixer.<span class="tok-fn">init</span>()
+pygame.mixer.music.<span class="tok-fn">load</span>(<span class="tok-str">"lagu.mp3"</span>)
+pygame.mixer.music.<span class="tok-fn">play</span>(start=<span class="tok-num">143</span>)  <span class="tok-com"># masuk ke bridge</span>
+
+<span class="tok-kw">for</span> text, start, duration <span class="tok-kw">in</span> lyrics:
+    <span class="tok-fn">type_line_synced</span>(text, duration)
+</code></pre>
+                            </div>
+
+                            <div class="cmd-view" data-cmd-view hidden>
+                                <div class="cmd-head">
+                                    <div class="cmd-sys">Microsoft Windows [Version 10.0.19045.4046]
+(c) Microsoft Corporation. All rights reserved.</div>
+                                    <div class="cmd-prompt">C:\Python&gt;py -3.13 Lagu.py</div>
+                                </div>
+                                <div class="cmd-output" data-output></div>
+                            </div>
+                        </div>
+
+                        <div class="demo-controls">
+                            <button type="button" class="demo-btn" data-play>
+                                <i class="bi bi-play-fill me-1" data-play-icon></i><span data-play-label>Jalankan kode</span>
+                            </button>
+                            <button type="button" class="demo-btn demo-btn-outline demo-btn--small" data-skip hidden>
+                                <i class="bi bi-skip-forward-fill me-1"></i>Lewati jeda
+                            </button>
+                            <button type="button" class="demo-btn demo-btn-outline" data-reset hidden>
+                                <i class="bi bi-arrow-return-left me-1"></i>Lihat kode
+                            </button>
+                            <span class="demo-status" data-status role="status">Siap</span>
+                            <span class="demo-time" data-time>00:00</span>
+                        </div>
+                    </div>
+
+                    <div class="project-body">
+                        <span class="project-number">06</span>
+                        <h5>LyricRunner — Shape of My Heart</h5>
+                        <p>Script Python yang mengetik lirik "Shape of My Heart" di Command Prompt secara sinkron dengan audio. Di web ini, tombol <strong>Jalankan kode</strong> memutar <code>lagu.mp3</code> dari detik ke-143, lalu source code berganti jadi CMD dengan jeda lirik sesuai script aslinya.</p>
+                        <div class="project-tags"><span>Python</span><span>pygame</span><span>Command Prompt</span><span>Lirik Sinkron</span></div>
                     </div>
                 </article>
             </div>
