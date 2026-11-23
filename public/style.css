@@ -398,16 +398,13 @@ a {
 }
 
 .section-index {
-    display: grid;
-    place-items: center;
-    width: 54px;
-    height: 54px;
-    border: 3px solid var(--hard);
-    background: var(--yellow);
-    color: #111111;
-    box-shadow: 4px 4px 0 var(--hard);
-    font-family: var(--font-display);
-    font-size: 1.05rem;
+    padding-top: 2px;
+    color: var(--orange);
+    font-family: var(--font-mono);
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    white-space: nowrap;
 }
 
 .section-kicker {
@@ -1006,8 +1003,7 @@ figure.work-media--full {
 }
 
 .contact-section .section-index {
-    border-color: #fffdf7;
-    box-shadow: 4px 4px 0 var(--yellow);
+    color: var(--yellow);
 }
 
 .contact-list {
@@ -1391,12 +1387,7 @@ figure.work-media::after {
 
     .section-heading {
         grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .section-index {
-        width: 46px;
-        height: 46px;
+        gap: 8px;
     }
 
     .section-title {
