@@ -398,13 +398,11 @@ a {
 }
 
 .section-index {
-    padding-top: 2px;
     color: var(--orange);
-    font-family: var(--font-mono);
-    font-size: .82rem;
-    font-weight: 700;
-    letter-spacing: .06em;
-    white-space: nowrap;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: .8;
+    letter-spacing: -.04em;
 }
 
 .section-kicker {
