@@ -1,120 +1,64 @@
 // =========================================
-// 1. Efek "membesar" + tooltip persentase keahlian
-// =========================================
-var LEVEL_DELAY = 650; // hover harus bertahan 650ms sebelum bar muncul
-
-document.querySelectorAll('.skill-card').forEach(function (card) {
-    function pop() {
-        card.classList.remove('pop');
-        void card.offsetWidth; // memaksa animasi ulang
-        card.classList.add('pop');
-    }
-    card.addEventListener('click', pop);
-    card.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            pop();
-        }
-    });
-    card.addEventListener('animationend', function () {
-        card.classList.remove('pop');
-    });
-
-    // Tooltip persentase dibuat otomatis dari atribut data-skill / data-level
-    var level = Number(card.dataset.level);
-    if (isNaN(level)) return;
-
-    level = Math.min(100, Math.max(0, level));
-
-    var tooltip = document.createElement('div');
-    tooltip.className = 'skill-level';
-    tooltip.innerHTML =
-        '<div class="skill-level-head"><span></span><strong></strong></div>' +
-        '<div class="skill-level-track"><div class="skill-level-fill"></div></div>';
-    tooltip.querySelector('span').textContent = card.dataset.skill || card.querySelector('h6').textContent.trim();
-    tooltip.querySelector('strong').textContent = level + '%';
-    tooltip.style.setProperty('--level', level + '%');
-    card.appendChild(tooltip);
-
-    var timer, clickTimer;
-
-    function showAfterDelay() {
-        clearTimeout(timer);
-        timer = setTimeout(function () {
-            card.classList.add('is-showing-level');
-        }, LEVEL_DELAY);
-    }
-
-    function hideNow() {
-        clearTimeout(timer);
-        card.classList.remove('is-showing-level');
-    }
-
-    card.addEventListener('mouseenter', showAfterDelay);
-    card.addEventListener('mouseleave', hideNow);
-    card.addEventListener('focus', showAfterDelay);
-    card.addEventListener('blur', hideNow);
-
-    // Tap di layar sentuh langsung menampilkan bar, lalu auto-hide
-    card.addEventListener('click', function () {
-        clearTimeout(timer);
-        clearTimeout(clickTimer);
-        card.classList.add('is-showing-level');
-        clickTimer = setTimeout(hideNow, 2200);
-    });
-});
-
-// =========================================
-// 2. Animasi muncul saat elemen masuk ke layar (scroll)
+// 1. Reveal: muncul lagi tiap kali masuk layar, dua arah
 // =========================================
 var revealElements = document.querySelectorAll('.reveal');
+var lastScrollY = window.scrollY;
 
 // Jika browser tidak mendukung IntersectionObserver, tampilkan semua saja
 if (!('IntersectionObserver' in window)) {
     revealElements.forEach(function (el) { el.classList.add('is-visible'); });
 } else {
-    // Delay otomatis untuk anak-anak di dalam wadah [data-stagger]
+    // Jedakan kecil antar baris supaya tidak semua bergerak bersamaan
     document.querySelectorAll('[data-stagger]').forEach(function (wrapper) {
-        wrapper.querySelectorAll(':scope > div > .reveal').forEach(function (el, index) {
-            if (!el.dataset.delay) el.style.transitionDelay = (index * 90) + 'ms';
+        wrapper.querySelectorAll(':scope > .reveal').forEach(function (el, index) {
+            el.style.transitionDelay = Math.min(index * 60, 240) + 'ms';
         });
-    });
-
-    // Delay manual dari atribut data-delay
-    revealElements.forEach(function (el) {
-        if (el.dataset.delay && !el.style.transitionDelay) {
-            el.style.transitionDelay = el.dataset.delay + 'ms';
-        }
     });
 
     var revealObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            var el = entry.target;
+        var goingUp = window.scrollY < lastScrollY;
 
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-                // Pastikan transisi aktif dulu sebelum elemen muncul lagi
-                el.classList.remove('is-resetting');
-                void el.offsetWidth;
-                el.classList.add('is-visible');
+                // Dari bawah saat scroll turun, dari atas saat scroll naik
+                entry.target.classList.toggle('is-from-top', goingUp);
+                entry.target.classList.add('is-visible');
             } else {
-                // Keluar layar: reset tanpa animasi, jadi saat masuk lagi animasinya ulang
-                el.classList.add('is-resetting');
-                el.classList.remove('is-visible');
-                requestAnimationFrame(function () {
-                    el.classList.remove('is-resetting');
-                });
+                entry.target.classList.remove('is-visible', 'is-from-top');
             }
         });
+
+        lastScrollY = window.scrollY;
     }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
     });
 
     revealElements.forEach(function (el) { revealObserver.observe(el); });
 }
 
 // =========================================
-// 3. Progress bar mengikuti posisi scroll
+// 1b. Garis aksen tiap section ikut masuk/keluar layar
+// =========================================
+var animatedSections = document.querySelectorAll('.section');
+
+if (!('IntersectionObserver' in window)) {
+    animatedSections.forEach(function (el) { el.classList.add('is-inview'); });
+} else {
+    var sectionObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            entry.target.classList.toggle('is-inview', entry.isIntersecting);
+        });
+    }, {
+        threshold: 0.06,
+        rootMargin: '0px 0px -10% 0px'
+    });
+
+    animatedSections.forEach(function (el) { sectionObserver.observe(el); });
+}
+
+// =========================================
+// 2. Progress bar mengikuti posisi scroll
 // =========================================
 var progressBar = document.getElementById('scrollProgress');
 
@@ -129,7 +73,7 @@ window.addEventListener('resize', updateProgress);
 updateProgress();
 
 // =========================================
-// 4. Navbar: menyusut saat scroll + menu aktif mengikuti section
+// 3. Navbar: menyusut saat scroll + menu aktif mengikuti section
 // =========================================
 var navbar = document.querySelector('.navbar');
 var navTargets = [];
@@ -167,7 +111,7 @@ window.addEventListener('resize', updateNavbar);
 updateNavbar();
 
 // =========================================
-// 5. Tutup menu navbar di HP setelah link diklik
+// 4. Tutup menu navbar di HP setelah link diklik
 // =========================================
 var mobileMenu = document.getElementById('menu');
 
@@ -187,7 +131,7 @@ if (mobileMenu) {
 }
 
 // =========================================
-// 6. Project Python: jalankan kode -> audio + lirik sinkron di CMD
+// 5. Project Python: jalankan kode -> audio + lirik sinkron di CMD
 // =========================================
 (function () {
     var demo = document.querySelector('[data-lyric-demo]');
@@ -206,7 +150,7 @@ if (mobileMenu) {
     var titleEl = demo.querySelector('[data-title]');
     var audio = demo.querySelector('[data-audio]');
 
-    var AUDIO_VOLUME = 0.10; // 25% — biar tidak terlalu kencang
+    var AUDIO_VOLUME = 0.10; // 10% — biar tidak terlalu kencang
     audio.volume = AUDIO_VOLUME;
 
     var raf = window.requestAnimationFrame || function (cb) { return window.setTimeout(cb, 33); };

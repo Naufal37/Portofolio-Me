@@ -4,25 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Naufal</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <!-- Font -->
+    <!-- Font:tiap peran pakai family berbeda -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS (container + collapse navbar) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
+    <!-- Bootstrap Icons (tombol tema + kontrol demo) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Aktifkan mode animasi supaya elemen reveal tidak langsung terlihat -->
     <script src="js/no-flash.js"></script>
-
-    <!-- Script (defer = dijalankan setelah HTML selesai di-parse) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/theme.js" defer></script>
@@ -30,15 +27,27 @@
 
 <body>
 
-<!-- Progress bar mengikuti posisi scroll -->
-<div class="scroll-progress" id="scrollProgress"></div>
+<!-- Sprite ikon untuk action link project -->
+<svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M12 3v12m0 0-4-4m4 4 4-4M4 19h16"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </symbol>
+
+</svg>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#home">
-            <i class="bi bi-code-slash me-2"></i>Naufal<span class="brand-dot">.</span>
-        </a>
+        <a class="navbar-brand" href="#home">Naufal<span class="brand-dot">.</span></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +67,6 @@
             </ul>
         </div>
 
-        <!-- Tombol ganti tema terang / gelap -->
         <button type="button" class="theme-toggle" id="themeToggle"
                 aria-label="Ganti ke tampilan gelap" aria-pressed="false" title="Ganti tema">
             <i class="bi bi-moon-stars-fill theme-icon-moon" aria-hidden="true"></i>
@@ -69,380 +77,265 @@
 
 <!-- Hero -->
 <section id="home" class="hero-section">
-    <div class="hero-glow hero-glow-one"></div>
-    <div class="hero-glow hero-glow-two"></div>
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-main">
+                <p class="hero-label">RPL Vohisma</p>
 
-    <div class="container position-relative">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-7">
-                <span class="hero-badge reveal"><i class="bi bi-stars me-2"></i>Web Portofolio</span>
+                <h1 class="hero-name">Naufal</h1>
 
-                <h1 class="hero-title reveal" data-delay="100">
-                    Halo, Saya <span>Naufal</span> <span class="hero-wave">👋</span>
-                </h1>
-
-                <p class="hero-desc reveal" data-delay="200">
-                    Saya adalah siswa SMKN 5 Malang Dari Jurusan Rekayasa Perangkat Lunak yang
-                    sedang belajar HTML, CSS, Bootstrap, GitHub, PHP dan Python.
+                <p class="hero-intro">
+                    Saya siswa RPL di SMKN 5 Malang. Saat ini saya belajar HTML, CSS,
+                    Bootstrap, GitHub, PHP, dan Python—sambil terus mencoba hal baru.
                 </p>
 
-                <div class="d-flex flex-wrap gap-3 reveal" data-delay="300">
-                    <a href="#project" class="btn btn-primary-custom">
-                        <i class="bi bi-folder2-open me-2"></i>Lihat Project
+                <div class="hero-actions">
+                    <a href="#project" class="brut-btn brut-btn--accent">
+                        Lihat project <span aria-hidden="true">→</span>
                     </a>
-                    <a href="#contact" class="btn btn-outline-custom">
-                        <i class="bi bi-chat-dots me-2"></i>Hubungi Saya
-                    </a>
-                </div>
-
-                <div class="hero-meta reveal" data-delay="400">
-                    <span><i class="bi bi-mortarboard me-2"></i>SMKN 5 Malang</span>
-                    <span><i class="bi bi-award me-2"></i>XI RPL</span>
+                    <a href="#contact" class="brut-btn">Hubungi saya</a>
                 </div>
             </div>
 
-            <div class="col-lg-5">
-                <div class="profile-wrap reveal" data-direction="zoom" data-delay="200">
-                    <div class="profile-decor decor-one"></div>
-                    <div class="profile-decor decor-two"></div>
+            <aside class="hero-card">
+                <figure class="hero-portrait">
+                    <img src="images/Foto.jpeg" alt="Foto Wonhee">
+                </figure>
 
-                    <!-- Foto profil -->
-                    <div class="profile-box">
-                        <div class="profile-inner">
-                            <img src="images/wonhee.jpg" alt="Foto profil Naufal" class="profile-photo">
-                        </div>
+                <dl class="hero-facts">
+                    <div>
+                        <dt>Kelas</dt>
+                        <dd>XI RPL</dd>
                     </div>
-                </div>
-            </div>
+                    <div>
+                        <dt>Jurusan</dt>
+                        <dd>Rekayasa Perangkat Lunak</dd>
+                    </div>
+                </dl>
+            </aside>
         </div>
     </div>
 </section>
 
+<div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+        <span>Naufal · RPL · SMKN 5 Malang · Frontend · Python · PMR · </span>
+        <span>Naufal · RPL · SMKN 5 Malang · Frontend · Python · PMR · </span>
+    </div>
+</div>
+
 <!-- About -->
 <section id="about" class="section about-section">
     <div class="container">
-        <div class="section-heading text-center reveal">
-            <span class="section-eyebrow">KENALAN DULU</span>
-            <h2>Tentang <span>Saya</span></h2>
-            <div class="heading-line"></div>
-        </div>
-
-        <div class="row g-4 align-items-stretch">
-            <div class="col-lg-5">
-                <div class="about-card h-100 reveal" data-direction="left">
-                    <h5 class="about-card-title"><i class="bi bi-person-badge me-2"></i>Data Diri</h5>
-                    <ul class="info-list list-unstyled mb-0">
-                        <li>
-                            <span class="info-icon"><i class="bi bi-person"></i></span>
-                            <div><small>Nama</small><strong>Muhammad Naufal Al Baihaqi</strong></div>
-                        </li>
-                        <li>
-                            <span class="info-icon"><i class="bi bi-building"></i></span>
-                            <div><small>Sekolah</small><strong>SMKN 5 Malang</strong></div>
-                        </li>
-                        <li>
-                            <span class="info-icon"><i class="bi bi-laptop"></i></span>
-                            <div><small>Jurusan</small><strong>Rekayasa Perangkat Lunak (RPL)</strong></div>
-                        </li>
-                        <li>
-                            <span class="info-icon"><i class="bi bi-people"></i></span>
-                            <div><small>Kelas</small><strong>XI RPL</strong></div>
-                        </li>
-                    </ul>
-                </div>
+        <header class="section-heading reveal">
+            <span class="section-index">01</span>
+            <div>
+                <p class="section-kicker">About</p>
+                <h2 class="section-title">About Me</h2>
             </div>
+        </header>
 
-            <div class="col-lg-7">
-                <div class="about-story h-100 reveal" data-direction="right" data-delay="150">
-                    <i class="bi bi-quote quote-icon"></i>
-                    <p>
-                        Saya senang mempelajari dunia pemrograman dan ingin menjadi
-                        Seorang Developer game atau Cyber security.
-                    </p>
-                    <div class="story-tags">
-                        <span>Pemrograman</span>
-                        <span>Game Development</span>
-                        <span>Cyber Security</span>
-                    </div>
-                </div>
+        <div class="about-grid">
+            <blockquote class="about-quote">
+                Saya adalah pelajar smkn 5 malang yang tertarik masuk ke dunia pemograman sejak smp,Saat ini saya masih mengasah skill saya di bidang fullstack developer
+            </blockquote>
+
+            <div class="about-body">
+                <p class="about-follow">
+                    Saat ini, saya juga tertarik dengan game development dan cyber security,
+                    sekaligus terus mengeksplorasi web dan mobile development melalui
+                    berbagai project kecil.
+                </p>
+
+                <p class="micro-label">Yang sedang saya eksplorasi</p>
+                <ul class="explore-list">
+                    <li>Game Development</li>
+                    <li>Cyber Security</li>
+                    <li>Web &amp; Mobile Development</li>
+                </ul>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Skills -->
-<section id="skills" class="section skills-section">
+<section id="skills" class="section skills-section section--alt">
     <div class="container">
-        <div class="section-heading text-center reveal">
-            <span class="section-eyebrow">APA YANG SAYA KUASAI</span>
-            <h2>Keahlian <span>&amp; Skill</span></h2>
-            <div class="heading-line"></div>
-            <p class="section-sub"></p>
-        </div>
-
-        <div class="skill-groups">
-
-            <!-- Programming Language -->
-            <div class="skill-group">
-                <h4 class="skill-group-title reveal"><i class="bi bi-code-slash"></i> Programming Language</h4>
-                <div class="row g-4 justify-content-center" data-stagger>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="HTML" data-level="45">
-                            <div class="skill-icon icon-html"><img src="images/logos/html5.svg" alt="Logo HTML5" class="skill-logo"></div>
-                            <h6>HTML</h6>
-                            <small>Struktur web</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="CSS" data-level="20">
-                            <div class="skill-icon icon-css"><img src="images/logos/css3.svg" alt="Logo CSS3" class="skill-logo"></div>
-                            <h6>CSS</h6>
-                            <small>Tampilan web</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="PHP" data-level="50">
-                            <div class="skill-icon icon-php"><img src="images/logos/php.svg" alt="Logo PHP" class="skill-logo"></div>
-                            <h6>PHP</h6>
-                            <small>Backend web</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="JavaScript" data-level="30">
-                            <div class="skill-icon icon-js"><img src="images/logos/javascript.svg" alt="Logo JavaScript" class="skill-logo"></div>
-                            <h6>JavaScript</h6>
-                            <small>Logika web</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Dart" data-level="30">
-                            <div class="skill-icon icon-dart"><img src="images/logos/dart.svg" alt="Logo Dart" class="skill-logo"></div>
-                            <h6>Dart</h6>
-                            <small>Bahasa Flutter</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Python" data-level="25">
-                            <div class="skill-icon icon-python"><img src="images/logos/python.svg" alt="Logo Python" class="skill-logo"></div>
-                            <h6>Python</h6>
-                            <small>Script &amp; otomasi</small>
-                        </div>
-                    </div>
-                </div>
+        <header class="section-heading reveal">
+            <span class="section-index">02</span>
+            <div>
+                <p class="section-kicker">Skills</p>
+                <h2 class="section-title">Yang saya pakai</h2>
+                <p class="section-intro">Yang saya pelajari dan gunakan untuk membangun project kecil.</p>
             </div>
+        </header>
 
-            <!-- Framework & Libraries -->
-            <div class="skill-group">
-                <h4 class="skill-group-title reveal"><i class="bi bi-layers"></i> Framework &amp; Libraries</h4>
-                <div class="row g-4 justify-content-center" data-stagger>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Bootstrap" data-level="20">
-                            <div class="skill-icon icon-bootstrap"><img src="images/logos/bootstrap.svg" alt="Logo Bootstrap" class="skill-logo"></div>
-                            <h6>Bootstrap</h6>
-                            <small>UI responsif</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Tailwind" data-level="20">
-                            <div class="skill-icon icon-tailwind"><img src="images/logos/tailwind.svg" alt="Logo Tailwind CSS" class="skill-logo"></div>
-                            <h6>Tailwind</h6>
-                            <small>Utility CSS</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Flutter" data-level="30">
-                            <div class="skill-icon icon-flutter"><img src="images/logos/flutter.svg" alt="Logo Flutter" class="skill-logo"></div>
-                            <h6>Flutter</h6>
-                            <small>Aplikasi mobile</small>
-                        </div>
-                    </div>
-                </div>
+        <dl class="skill-grid">
+            <div class="skill-tile reveal">
+                <dt class="skill-title">Frontend</dt>
+                <dd class="skill-items">
+                    <span class="skill-item"><img src="images/logos/html5.svg" alt="">HTML</span>
+                    <span class="skill-item"><img src="images/logos/css3.svg" alt="">CSS</span>
+                    <span class="skill-item"><img src="images/logos/javascript.svg" alt="">JavaScript</span>
+                    <span class="skill-item"><img src="images/logos/bootstrap.svg" alt="">Bootstrap</span>
+                    <span class="skill-item"><img src="images/logos/tailwind.svg" alt="">Tailwind</span>
+                </dd>
             </div>
-
-            <!-- Tools & Technology -->
-            <div class="skill-group">
-                <h4 class="skill-group-title reveal"><i class="bi bi-tools"></i> Tools &amp; Technology</h4>
-                <div class="row g-4 justify-content-center" data-stagger>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Git" data-level="40">
-                            <div class="skill-icon icon-git"><img src="images/logos/git.svg" alt="Logo Git" class="skill-logo"></div>
-                            <h6>Git</h6>
-                            <small>Version control</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="GitHub" data-level="40">
-                            <div class="skill-icon icon-github"><img src="images/logos/github.svg" alt="Logo GitHub" class="skill-logo"></div>
-                            <h6>GitHub</h6>
-                            <small>Version control</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="VS Code" data-level="80">
-                            <div class="skill-icon icon-vscode"><img src="images/logos/vscode.svg" alt="Logo Visual Studio Code" class="skill-logo"></div>
-                            <h6>VS Code</h6>
-                            <small>Code editor</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Supabase" data-level="45">
-                            <div class="skill-icon icon-supabase"><img src="images/logos/supabase.svg" alt="Logo Supabase" class="skill-logo"></div>
-                            <h6>Supabase</h6>
-                            <small>Backend &amp; database</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="PostgreSQL" data-level="40">
-                            <div class="skill-icon icon-postgresql"><img src="images/logos/postgresql.svg" alt="Logo PostgreSQL" class="skill-logo"></div>
-                            <h6>PostgreSQL</h6>
-                            <small>Database SQL</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Vercel" data-level="45">
-                            <div class="skill-icon icon-vercel"><img src="images/logos/vercel.svg" alt="Logo Vercel" class="skill-logo"></div>
-                            <h6>Vercel</h6>
-                            <small>Deploy aplikasi</small>
-                        </div>
-                    </div>
-                </div>
+            <div class="skill-tile reveal">
+                <dt class="skill-title">Backend &amp; Data</dt>
+                <dd class="skill-items">
+                    <span class="skill-item"><img src="images/logos/php.svg" alt="">PHP</span>
+                    <span class="skill-item"><img src="images/logos/supabase.svg" alt="">Supabase</span>
+                    <span class="skill-item"><img src="images/logos/postgresql.svg" alt="">PostgreSQL</span>
+                </dd>
             </div>
-
-            <!-- Creative & Design -->
-            <div class="skill-group">
-                <h4 class="skill-group-title reveal"><i class="bi bi-camera-reels"></i> Creative &amp; Design</h4>
-                <div class="row g-4 justify-content-center" data-stagger>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Alight Motion" data-level="90">
-                            <div class="skill-icon icon-editing"><img src="images/logos/alight-motion.svg" alt="Logo Alight Motion" class="skill-logo"></div>
-                            <h6>Alight Motion</h6>
-                            <small>Editing video</small>
-                        </div>
-                    </div>
-                </div>
+            <div class="skill-tile reveal">
+                <dt class="skill-title">Programming &amp; Mobile</dt>
+                <dd class="skill-items">
+                    <span class="skill-item"><img src="images/logos/python.svg" alt="">Python</span>
+                    <span class="skill-item"><img src="images/logos/dart.svg" alt="">Dart</span>
+                    <span class="skill-item"><img src="images/logos/flutter.svg" alt="">Flutter</span>
+                </dd>
             </div>
-
-            <!-- Design UI/UX -->
-            <div class="skill-group">
-                <h4 class="skill-group-title reveal"><i class="bi bi-palette"></i> Design UI/UX</h4>
-                <div class="row g-4 justify-content-center" data-stagger>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <div class="skill-card reveal" tabindex="0" role="button" data-skill="Figma" data-level="75">
-                            <div class="skill-icon icon-figma"><img src="images/logos/figma.svg" alt="Logo Figma" class="skill-logo"></div>
-                            <h6>Figma</h6>
-                            <small>Desain antarmuka</small>
-                        </div>
-                    </div>
-                </div>
+            <div class="skill-tile reveal">
+                <dt class="skill-title">Tools &amp; Desain</dt>
+                <dd class="skill-items">
+                    <span class="skill-item"><img src="images/logos/git.svg" alt="">Git</span>
+                    <span class="skill-item"><img src="images/logos/github.svg" alt="">GitHub</span>
+                    <span class="skill-item"><img src="images/logos/vscode.svg" alt="">VS Code</span>
+                    <span class="skill-item"><img src="images/logos/vercel.svg" alt="">Vercel</span>
+                    <span class="skill-item"><img src="images/logos/figma.svg" alt="">Figma</span>
+                    <span class="skill-item"><img src="images/logos/alight-motion.svg" alt="">Alight Motion</span>
+                </dd>
             </div>
-
-        </div>
+        </dl>
     </div>
 </section>
 
 <!-- Projects -->
 <section id="project" class="section project-section">
     <div class="container">
-        <div class="section-heading text-center reveal">
-            <span class="section-eyebrow">KARYA SAYA</span>
-            <h2>Project <span>Saya</span></h2>
-            <div class="heading-line"></div>
-        </div>
-
-        <div class="row g-4" data-stagger>
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/Zee.jpeg"
-                         class="project-img project-img--portrait"
-                         alt="Motion Graphic sederhana menggunakan Aplikasi Alight Motion"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">01</span>
-                        <h5>Motion Graphic</h5>
-                        <p>Eksperimen pembuatan motion graphic sederhana dengan Alight Motion untuk menyampaikan informasi secara visual melalui animasi teks dan gambar. Mengatur layer, transisi, dan timing setiap elemen agar pergerakannya halus, menghasilkan video pendek yang jelas dan mudah dipahami.</p>
-                        <div class="project-tags"><span>Alight Motion</span><span>Editing</span></div>
-                        <div class="project-actions">
-                            <!-- Tombol Demo langsung mengunduh file Zee.jpeg -->
-                            <a href="images/Zee.jpeg" download="Zee.jpeg" class="btn btn-project w-100">
-                                <i class="bi bi-download me-1"></i>Unduh
-                            </a>
-                        </div>
-                    </div>
-                </article>
+        <header class="section-heading reveal">
+            <span class="section-index">03</span>
+            <div>
+                <p class="section-kicker">Karya</p>
+                <h2 class="section-title">Project saya</h2>
+                <p class="section-intro">Eksperimen dan project kecil yang saya kerjakan.</p>
             </div>
+        </header>
 
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/Aplikasi%20Student%20Hub.jpeg"
-                         class="project-img project-img--full"
-                         alt="Tampilan aplikasi Student Hub yang dibuat dengan Flutter"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">02</span>
-                        <h5>Aplikasi Student Hub</h5>
-                        <p>Mengembangkan aplikasi Android berbasis Flutter untuk mengelola aktivitas dan informasi mahasiswa dalam satu tempat, sehingga jadwal dan pengumuman penting lebih mudah diakses. Antarmuka dirancang responsif dengan widget Flutter dan bahasa Dart, didukung alur navigasi yang sederhana untuk penggunaan sehari-hari.</p>
-                        <div class="project-tags"><span>Flutter</span><span>Dart</span><span>Android</span></div>
-                        <div class="project-actions">
-                            <a href="images/Aplikasi%20Student%20Hub.jpeg" download class="btn btn-project w-100">
-                                <i class="bi bi-download me-1"></i>Lihat Gambar
-                            </a>
-                        </div>
+        <div class="work-grid" data-stagger>
+            <article class="work-card reveal">
+                <figure class="work-media work-media--full">
+                    <img src="images/Zee.jpeg" loading="lazy"
+                         alt="Motion Graphic sederhana menggunakan Aplikasi Alight Motion">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">01 | Fans Edit</p>
+                    <h3>Motion Graphic</h3>
+                    <p class="work-description">
+                        Eksperimen motion graphic pakai Alight Motion. Dengan mengatur layer, transisi,
+                        dan timing animasi teks serta gambar supaya presisi.
+                    </p>
+                    <ul class="work-logos" aria-label="Alat yang dipakai">
+                        <li>
+                            <img src="images/logos/alight-motion.svg" alt="">
+                            <span class="visually-hidden">Alight Motion</span>
+                        </li>
+                    </ul>
+                    <div class="work-actions">
+                        <a href="images/Zee.jpeg" download="Zee.jpeg" class="text-link">
+                            <svg class="link-icon" aria-hidden="true"><use href="#icon-download"></use></svg>
+                            Unduh
+                        </a>
                     </div>
-                </article>
-            </div>
+                </div>
+            </article>
 
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/Nada.jpeg"
-                         class="project-img"
-                         alt="Tampilan aplikasi web musik Nada"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">03</span>
-                        <h5>Nada</h5>
-                        <p>Membangun aplikasi web pemutar musik malam hari dengan panel Now Playing besar, panel lirik dan antrean, serta navbar liquid glass. Katalog lagu dan streaming MP3 penuh diambil dari Jamendo API berlisensi Creative Commons, lirik dari LRCLIB, sementara favorit, playlist, riwayat, dan mood sync tersimpan di localStorage browser tanpa akun maupun database sendiri. Tampilan gelap neon dusk dengan panel kaca mengikuti spesifikasi Nocturne (design.md), dibangun dengan React 19, Vite 6, dan TypeScript. Client ID Jamendo disimpan aman di server lewat proxy serverless /api/jamendo dengan cache 300 detik. Pemutaran memakai elemen &lt;audio&gt; biasa tanpa Spotify Premium karena akun Free ditolak 403 sejak 2026, sehingga katalog indie/CC dipilih agar aplikasi tetap legal dan gratis. Deploy ke Vercel lewat environment variable JAMENDO_CLIENT_ID. Batasan disengaja: tanpa login atau database, hanya lagu CC/Pro yang muncul, lirik kosong bila LRCLIB tidak punya, angka Energy/Warmth/Tempo sekadar perkiraan metadata, mood sync hanya visual, dan prefers-reduced-motion serta label aria dihormati.</p>
-                        <div class="project-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>JAMENDO API</span></div>
-                        <div class="project-actions">
-                            <a href="https://spotafiy-nada.vercel.app/" class="btn btn-project"><i class="bi bi-box-arrow-up-right me-1"></i>Demo</a>
-                            <a href="https://github.com/Naufal37/spotafiy-nada" class="btn btn-project-outline"><i class="bi bi-github me-1"></i>GitHub</a>
-                        </div>
+            <article class="work-card reveal">
+                <figure class="work-media">
+                    <img src="images/Nada.jpeg" loading="lazy" alt="Tampilan aplikasi web musik Nada">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">02 | Music Player</p>
+                    <h3>Nada</h3>
+                    <p class="work-description">
+                        Pemutar musik player mirip seperti spotify dengan menggunakan API Spotify Premium,Sebelum Pengguna mendengarkan music Di wajibkan login akun spotify premium
+                    </p>
+
+                    <details class="work-notes">
+                        <summary>Catatan teknis</summary>
+                        <ul>
+                            <li>Dibangun dengan React 19, Vite, dan TypeScript.</li>
+                            <li>Lagu,lirik dan streaming memakai database spotify saat lagu diputar.</li>
+                            <li>Menggunakan login dan database SPOTIFY dengan menggunakan API.</li>
+                        </ul>
+                    </details>
+
+                    <ul class="work-logos" aria-label="Alat yang dipakai">
+                        <li>
+                            <img src="images/logos/react.svg" alt="">
+                            <span class="visually-hidden">React</span>
+                        </li>
+                    </ul>
+                    <div class="work-actions">
+                        <a href="https://spotafiy-nada.vercel.app/" class="text-link" target="_blank" rel="noopener">
+                            <svg class="link-icon" aria-hidden="true"><use href="#icon-play"></use></svg>
+                            Demo
+                        </a>
+                        <a href="https://github.com/Naufal37/spotafiy-nada" class="text-link" target="_blank" rel="noopener">
+                            <svg class="link-icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                            GitHub
+                        </a>
                     </div>
-                </article>
-            </div>
+                </div>
+            </article>
 
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/android%20adb.jpeg"
-                         class="project-img"
-                         alt="Dokumentasi pengendalian perangkat Android dengan ADB dan scrcpy"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">04</span>
-                        <h5>Android Device Control with ADB &amp; scrcpy</h5>
-                        <p>Eksperimen menghubungkan dan mengendalikan perangkat Android melalui laptop menggunakan Android Debug Bridge (ADB) dan scrcpy. Memanfaatkan Wireless Debugging untuk menghubungkan smartphone, melakukan screen mirroring, dan berinteraksi dengan perangkat secara langsung melalui komputer.</p>
-                        <div class="project-tags"><span>ADB</span><span>scrcpy</span><span>Wireless Debugging</span><span>CMD</span></div>
-                    </div>
-                </article>
-            </div>
+            <article class="work-card reveal">
+                <figure class="work-media">
+                    <img src="images/android%20adb.jpeg" loading="lazy"
+                         alt="Dokumentasi pengendalian perangkat Android dengan ADB dan scrcpy">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">03 | Perangkat Android</p>
+                    <h3>Android Device Control with ADB &amp; scrcpy</h3>
+                    <p class="work-description">
+                        Eksperimen menghubungkan HP Android ke laptop lewat ADB tanpa kabel.
+                        Layar HP ditampilkan dan dikendalikan lewat scrcpy.
+                    </p>
+                    <ul class="work-logos" aria-label="Alat yang dipakai">
+                        <li>
+                            <img src="images/logos/android.svg" alt="">
+                            <span class="visually-hidden">Android</span>
+                        </li>
+                    </ul>
+                </div>
+            </article>
 
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/tv%20stick.jpeg"
-                         class="project-img"
-                         alt="Dokumentasi optimasi dan debloating Android TV Stick"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">05</span>
-                        <h5>Android TV Stick Optimization &amp; Debloating</h5>
-                        <p>Eksperimen mengoptimalkan perangkat Android TV Stick menggunakan Android Debug Bridge (ADB). Melakukan pengelolaan aplikasi bawaan melalui ADB Shell, menonaktifkan aplikasi yang tidak diperlukan, serta mengeksplorasi penggunaan launcher alternatif untuk menciptakan pengalaman Android TV yang lebih sederhana.</p>
-                        <div class="project-tags"><span>ADB</span><span>ADB Shell</span><span>Android TV</span><span>USB Debugging</span><span>Wireless Debugging</span></div>
-                    </div>
-                </article>
-            </div>
+            <article class="work-card reveal">
+                <figure class="work-media">
+                    <img src="images/tv%20stick.jpeg" loading="lazy"
+                         alt="Dokumentasi optimasi dan debloating Android TV Stick">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">04 | Android TV</p>
+                    <h3>Android TV Stick Optimization &amp; Debloating</h3>
+                    <p class="work-description">
+                        Saya memakai ADB untuk mengelola aplikasi bawaan Android TV Stick. Aplikasi yang
+                        tidak diperlukan dinonaktifkan, lalu dicoba launcher alternatif agar tampilannya
+                        lebih sederhana.
+                    </p>
+                    <ul class="work-logos" aria-label="Alat yang dipakai">
+                        <li>
+                            <img src="images/logos/android.svg" alt="">
+                            <span class="visually-hidden">Android</span>
+                        </li>
+                    </ul>
+                </div>
+            </article>
 
-            <!-- Project Python: source code -> CMD dengan lirik yang diketik -->
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
+            <article class="work-card reveal">
+                <div class="work-media work-media--demo">
                     <div class="code-demo" data-lyric-demo>
                         <audio data-audio preload="none"></audio>
 
@@ -508,168 +401,176 @@ pygame.mixer.music.<span class="tok-fn">play</span>(start=<span class="tok-num">
                             <span class="demo-time" data-time>00:00</span>
                         </div>
                     </div>
-
-                    <div class="project-body">
-                        <span class="project-number">06</span>
-                        <h5>LyricRunner — Shape of My Heart</h5>
-                        <p>Script Python yang mengetik lirik "Shape of My Heart" di Command Prompt secara sinkron dengan audio. Di web ini, tombol <strong>Jalankan kode</strong> memutar <code>lagu.mp3</code> dari detik ke-143, lalu source code berganti jadi CMD dengan jeda lirik sesuai script aslinya.</p>
-                        <div class="project-tags"><span>Python</span><span>pygame</span><span>Command Prompt</span><span>Lirik Sinkron</span></div>
+                </div>
+                <div class="work-body">
+                    <p class="work-meta">05 | Script Python</p>
+                    <h3>LyricRunner — Shape of My Heart</h3>
+                    <p class="work-description">
+                        Script Python yang mengetik lirik lagu "Shape of My Heart" di CMD secara sinkron
+                        dengan audio. Di web ini, tombol <strong>Jalankan kode</strong> memutar lagu
+                        dari detik ke-143 lalu menampilkan liriknya.
+                    </p>
+                    <ul class="work-logos" aria-label="Alat yang dipakai">
+                        <li>
+                            <img src="images/logos/python.svg" alt="">
+                            <span class="visually-hidden">Python</span>
+                        </li>
+                    </ul>
+                    <div class="work-actions">
+                        <!-- TODO: ganti href dengan URL repository Python milikmu -->
+                        <a href="https://github.com/Naufal37" class="text-link" target="_blank" rel="noopener">
+                            <svg class="link-icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                            GitHub
+                        </a>
                     </div>
-                </article>
-            </div>
+                </div>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- Aktivitas & Pengalaman -->
-<section id="aktivitas" class="section activity-section">
+<!-- Aktivitas -->
+<section id="aktivitas" class="section activity-section section--alt">
     <div class="container">
-        <div class="section-heading text-center reveal">
-            <span class="section-eyebrow">DI LUAR KELAS</span>
-            <h2>Aktivitas <span>&amp; Pengalaman</span></h2>
-            <div class="heading-line"></div>
-            <p class="section-sub">Pengalaman saya bersama Palang Merah Remaja (PMR).</p>
-        </div>
-
-        <div class="row g-4" data-stagger>
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/Demonstrasi%20Ekskul.jpeg"
-                         class="project-img"
-                         alt="Demonstrasi ekstrakulikuler PMR untuk siswa"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">01</span>
-                        <span class="activity-date"><i class="bi bi-calendar3"></i>15–17 Juli 2026</span>
-                        <h5>Demonstrasi Ekstrakulikuler PMR</h5>
-                        <p>Berpartisipasi dalam kegiatan demonstrasi ekstrakulikuler untuk PMR kepada siswa.</p>
-                        <div class="project-tags"><span>PMR</span><span>Demonstrasi</span></div>
-                    </div>
-                </article>
+        <header class="section-heading reveal">
+            <span class="section-index">04</span>
+            <div>
+                <p class="section-kicker">Activities</p>
+                <h2 class="section-title">Aktivitas &amp; pengalaman</h2>
+                <p class="section-intro">Selain saya belajar di dunia programing saya juga mengasah skill saya di Palang Merah Remaja (PMR).</p>
             </div>
+        </header>
 
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/Orientasi%20Kepalangmerahan-web.jpg"
-                         class="project-img project-img--activity"
-                         alt="Orientasi kepalangmerahan dan diklat dasar PMR"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">02</span>
-                        <span class="activity-date"><i class="bi bi-calendar3"></i>28–29 September 2026</span>
-                        <h5>Orientasi Kepalangmerahan / Diklat PMR</h5>
-                        <p>Mengikuti Pendidikan dan Pelatihan Dasar PMR kepalangmerahan, kerja sama serta pertolongan pertama.</p>
-                        <div class="project-tags"><span>PMR</span><span>Diklat</span></div>
-                    </div>
-                </article>
-            </div>
+        <div class="work-grid" data-stagger>
+            <article class="work-card reveal">
+                <figure class="work-media">
+                    <img src="images/Demonstrasi%20Ekskul.jpeg" loading="lazy"
+                         alt="Demonstrasi ekstrakulikuler PMR untuk siswa">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">15–17 Jul 2026 | PMR  Demonstrasi</p>
+                    <h3>Demonstrasi Ekstrakulikuler PMR</h3>
+                    <p class="work-description">
+                        Berpartisipasi dalam kegiatan demonstrasi ekstrakulikuler untuk PMR kepada siswa.
+                    </p>
+                </div>
+            </article>
 
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/Latihan%20Gabungan.jpeg"
-                         class="project-img project-img--portrait"
-                         alt="Latihan gabungan PMR se-Kota Malang"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">03</span>
-                        <span class="activity-date"><i class="bi bi-calendar3"></i>10–11 Oktober 2026</span>
-                        <h5>Latihan Gabungan PMR</h5>
-                        <p>Mengikuti kegiatan latihan gabungan PMR se-Kota Malang untuk mengembangkan keterampilan kepalangmerahan, kerja sama tim, dan pengalaman organisasi.</p>
-                        <div class="project-tags"><span>PMR</span><span>Latihan Gabungan</span></div>
-                    </div>
-                </article>
-            </div>
+            <article class="work-card reveal">
+                <figure class="work-media">
+                    <img src="images/Orientasi%20Kepalangmerahan-web.jpg" loading="lazy"
+                         alt="Orientasi kepalangmerahan dan diklat dasar PMR">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">28–29 Sep 2026 | PMR  Diklat</p>
+                    <h3>Orientasi Kepalangmerahan / Diklat PMR</h3>
+                    <p class="work-description">
+                        Mengikuti Pendidikan dan Pelatihan Dasar PMR kepalangmerahan, kerja sama
+                        serta pertolongan pertama.
+                    </p>
+                </div>
+            </article>
+
+            <article class="work-card reveal">
+                <figure class="work-media work-media--full">
+                    <img src="images/Latihan%20Gabungan.jpeg" loading="lazy"
+                         alt="Latihan gabungan PMR se-Kota Malang">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">10–11 Okt 2026 | PMR  Latihan Gabungan</p>
+                    <h3>Latihan Gabungan PMR</h3>
+                    <p class="work-description">
+                        Mengikuti kegiatan latihan gabungan PMR se-Kota Malang untuk mengembangkan
+                        keterampilan kepalangmerahan, kerja sama tim, dan pengalaman organisasi.
+                    </p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- Perjalanan Pendidikan -->
+<!-- Pendidikan -->
 <section id="pendidikan" class="section education-section">
     <div class="container">
-        <div class="section-heading text-center reveal">
-            <span class="section-eyebrow">RIWAYAT SEKOLAH</span>
-            <h2>Perjalanan <span>Pendidikan Saya</span></h2>
-            <div class="heading-line"></div>
-            <p class="section-sub">Langkah pendidikan saya dari SD sampai SMK.</p>
-        </div>
-
-        <div class="row g-4" data-stagger>
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/sdn%202.jpg"
-                         class="project-img project-img--edu"
-                         alt="SDN Purwantoro 2 Malang"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">01</span>
-                        <span class="activity-date"><i class="bi bi-calendar3"></i>2016–2022</span>
-                        <h5>SDN Purwantoro 2 Malang</h5>
-                        <p>Menempuh pendidikan dasar di SDN Purwantoro 2 Malang selama enam tahun.</p>
-                        <div class="project-tags"><span>SD</span><span>Pendidikan Dasar</span></div>
-                    </div>
-                </article>
+        <header class="section-heading reveal">
+            <span class="section-index">05</span>
+            <div>
+                <p class="section-kicker">Riwayat sekolah</p>
+                <h2 class="section-title">Perjalanan pendidikan</h2>
+                <p class="section-intro">Langkah pendidikan saya dari SD sampai SMK.</p>
             </div>
+        </header>
 
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/smp%2016.jpg"
-                         class="project-img project-img--edu"
-                         alt="SMP Negeri 16 Malang"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">02</span>
-                        <span class="activity-date"><i class="bi bi-calendar3"></i>2022–2025</span>
-                        <h5>SMP Negeri 16 Malang</h5>
-                        <p>Melanjutkan pendidikan menengah pertama di SMP Negeri 16 Malang.</p>
-                        <div class="project-tags"><span>SMP</span><span>Pendidikan Menengah</span></div>
-                    </div>
-                </article>
-            </div>
+        <div class="work-grid" data-stagger>
+            <article class="work-card reveal">
+                <figure class="work-media">
+                    <img src="images/sdn%202.jpg" loading="lazy" alt="SDN Purwantoro 2 Malang">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">2016–2022 | SD  Pendidikan Dasar</p>
+                    <h3>SDN Purwantoro 2 Malang</h3>
+                    <p class="work-description">
+                        Menempuh pendidikan dasar di SDN Purwantoro 2 Malang selama enam tahun.
+                    </p>
+                </div>
+            </article>
 
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/smk%205.jpg"
-                         class="project-img project-img--edu"
-                         alt="SMKN 5 Malang"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">03</span>
-                        <span class="activity-date"><i class="bi bi-calendar3"></i>2025–2028</span>
-                        <h5>SMK Negeri 5 Malang</h5>
-                        <p>Sekarang bersekolah di SMKN 5 Malang jurusan Rekayasa Perangkat Lunak.</p>
-                        <div class="project-tags"><span>SMK</span><span>Rekayasa Perangkat Lunak</span></div>
-                    </div>
-                </article>
-            </div>
+            <article class="work-card reveal">
+                <figure class="work-media">
+                    <img src="images/smp%2016.jpg" loading="lazy" alt="SMP Negeri 16 Malang">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">2022–2025 | SMP  Pendidikan Menengah</p>
+                    <h3>SMP Negeri 16 Malang</h3>
+                    <p class="work-description">
+                        Melanjutkan pendidikan menengah pertama di SMP Negeri 16 Malang.
+                    </p>
+                </div>
+            </article>
+
+            <article class="work-card reveal">
+                <figure class="work-media">
+                    <img src="images/smk%205.jpg" loading="lazy" alt="SMKN 5 Malang">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">2025–2028 | SMK  Rekayasa Perangkat Lunak</p>
+                    <h3>SMK Negeri 5 Malang</h3>
+                    <p class="work-description">
+                        Sekarang bersekolah di SMKN 5 Malang jurusan Rekayasa Perangkat Lunak.
+                    </p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- Certificates & Achievements -->
-<section id="sertifikat" class="section certificate-section">
+<!-- Sertifikat -->
+<section id="sertifikat" class="section certificate-section section--alt">
     <div class="container">
-        <div class="section-heading text-center reveal">
-            <span class="section-eyebrow">PENCAPAIAN SAYA</span>
-            <h2>Certificates <span>&amp; Achievements</span></h2>
-            <div class="heading-line"></div>
-            <p class="section-sub">Beberapa sertifikat dan pencapaian yang sudah saya peroleh.</p>
-        </div>
-
-        <div class="row g-4 justify-content-center" data-stagger>
-            <div class="col-md-6 col-lg-4">
-                <article class="project-card reveal">
-                    <img src="images/Naufal.png"
-                         class="project-img project-img--certificate"
-                         alt="Sertifikat pelatihan Diklatsar PMR SMKN 5 Malang"
-                         loading="lazy">
-                    <div class="project-body">
-                        <span class="project-number">01</span>
-                        <h5>Diklatsar PMR</h5>
-                        <p>Sertifikat pelatihan Diklatsar PMR yang diikuti di SMKN 5 Malang.</p>
-                        <div class="project-tags"><span>PMR</span><span>Diklatsar</span><span>Sertifikat</span></div>
-                    </div>
-                </article>
+        <header class="section-heading reveal">
+            <span class="section-index">06</span>
+            <div>
+                <p class="section-kicker">Pencapaian</p>
+                <h2 class="section-title">Sertifikat &amp; pencapaian</h2>
+                <p class="section-intro">Beberapa sertifikat dan pencapaian yang sudah saya peroleh.</p>
             </div>
+        </header>
+
+        <div class="work-grid work-grid--single" data-stagger>
+            <article class="work-card reveal">
+                <figure class="work-media">
+                    <img src="images/Naufal.png" loading="lazy"
+                         alt="Sertifikat pelatihan Diklatsar PMR SMKN 5 Malang">
+                </figure>
+                <div class="work-body">
+                    <p class="work-meta">01 / PMR · Diklatsar</p>
+                    <h3>Diklatsar PMR</h3>
+                    <p class="work-description">
+                        Sertifikat pelatihan Diklatsar PMR yang diikuti di SMKN 5 Malang.
+                    </p>
+                    <p class="work-tags">PMR / Diklatsar / Sertifikat</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -677,63 +578,84 @@ pygame.mixer.music.<span class="tok-fn">play</span>(start=<span class="tok-num">
 <!-- Contact -->
 <section id="contact" class="section contact-section">
     <div class="container">
-        <div class="section-heading text-center reveal">
-            <span class="section-eyebrow">YUK NGOBROL</span>
-            <h2>Hubungi <span>Saya</span></h2>
-            <div class="heading-line"></div>
-            <p class="section-sub">Punya ide atau pertanyaan? Jangan ragu untuk menghubungi saya.</p>
-        </div>
+        <header class="section-heading reveal">
+            <span class="section-index">07</span>
+            <div>
+                <p class="section-kicker">Yuk ngobrol</p>
+                <h2 class="section-title">Hubungi saya</h2>
+                <p class="section-intro">Punya ide atau pertanyaan? Jangan ragu untuk menghubungi saya.</p>
+            </div>
+        </header>
 
-        <div class="row g-4 justify-content-center" data-stagger>
-            <div class="col-sm-6 col-lg-4">
-                <a href="mailto:nisizza@gmail.com" class="contact-card reveal">
-                    <span class="contact-icon icon-email"><img src="images/logos/email.svg" alt="Logo Gmail" class="contact-logo"></span>
-                    <small>Email</small>
-                    <strong>nisizza@gmail.com</strong>
-                    <span class="contact-arrow"><i class="bi bi-arrow-up-right"></i></span>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <a href="https://wa.me/62895396149363" target="_blank" rel="noopener" class="contact-card reveal">
-                    <span class="contact-icon icon-wa"><i class="bi bi-whatsapp"></i></span>
-                    <small>WhatsApp</small>
-                    <strong>0895396149363</strong>
-                    <span class="contact-arrow"><i class="bi bi-arrow-up-right"></i></span>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <a href="https://instagram.com/fall_1282" target="_blank" rel="noopener" class="contact-card reveal">
-                    <span class="contact-icon icon-ig"><i class="bi bi-instagram"></i></span>
-                    <small>Instagram</small>
-                    <strong>@fall_1282</strong>
-                    <span class="contact-arrow"><i class="bi bi-arrow-up-right"></i></span>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <a href="https://github.com/Naufal37" target="_blank" rel="noopener" class="contact-card reveal">
-                    <span class="contact-icon icon-git"><i class="bi bi-github"></i></span>
-                    <small>GitHub</small>
-                    <strong>github.com/Naufal37</strong>
-                    <span class="contact-arrow"><i class="bi bi-arrow-up-right"></i></span>
-                </a>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <a href="https://www.tiktok.com/@falll1289?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" class="contact-card reveal">
-                    <span class="contact-icon icon-tiktok"><img src="images/logos/tiktok.svg" alt="Logo TikTok" class="contact-logo"></span>
-                    <small>TikTok</small>
-                    <strong>@falll1289</strong>
-                    <span class="contact-arrow"><i class="bi bi-arrow-up-right"></i></span>
-                </a>
-            </div>
+        <div class="contact-list" data-stagger>
+            <a href="mailto:nisizza@gmail.com" class="contact-row reveal">
+                <span class="contact-logo" aria-hidden="true">
+                    <svg viewBox="52 42 88 66" focusable="false">
+                        <path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6"/>
+                        <path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15"/>
+                        <path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2"/>
+                        <path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92"/>
+                        <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2"/>
+                    </svg>
+                </span>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">nisizza@gmail.com</span>
+                <span class="contact-go" aria-hidden="true">↗</span>
+            </a>
+
+            <a href="https://wa.me/62895396149363" target="_blank" rel="noopener" class="contact-row reveal">
+                <span class="contact-logo contact-logo--wa" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" focusable="false">
+                        <path fill="currentColor" d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                    </svg>
+                </span>
+                <span class="contact-label">WhatsApp</span>
+                <span class="contact-value">0895396149363</span>
+                <span class="contact-go" aria-hidden="true">↗</span>
+            </a>
+
+            <a href="https://instagram.com/fall_1282" target="_blank" rel="noopener" class="contact-row reveal">
+                <span class="contact-logo contact-logo--ig" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" focusable="false">
+                        <path fill="currentColor" d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                    </svg>
+                </span>
+                <span class="contact-label">Instagram</span>
+                <span class="contact-value">@fall_1282</span>
+                <span class="contact-go" aria-hidden="true">↗</span>
+            </a>
+
+            <a href="https://github.com/Naufal37" target="_blank" rel="noopener" class="contact-row reveal">
+                <span class="contact-logo contact-logo--mono" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                        <path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                </span>
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">github.com/Naufal37</span>
+                <span class="contact-go" aria-hidden="true">↗</span>
+            </a>
+
+            <a href="https://www.tiktok.com/@falll1289?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" class="contact-row reveal">
+                <span class="contact-logo contact-logo--mono" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                        <path fill="#25f4ee" transform="translate(-0.6 0)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                        <path fill="#fe2c55" transform="translate(0.6 0)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                        <path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                    </svg>
+                </span>
+                <span class="contact-label">TikTok</span>
+                <span class="contact-value">@falll1289</span>
+                <span class="contact-go" aria-hidden="true">↗</span>
+            </a>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="site-footer text-center py-4">
-    <div class="container">
-        <p class="mb-1 fw-semibold">© 2026 Naufal</p>
-        <small>Oficiall Patner OpenCode <i class="bi bi-heart-fill text-danger mx-1"></i></small>
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>© 2026 Naufal</p>
+        <p>Style Neo-Brutalism <span aria-hidden="true"></span></p>
     </div>
 </footer>
 
